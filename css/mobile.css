@@ -1,0 +1,350 @@
+/* Mobile-specific styles */
+
+/* Utility classes for responsive visibility */
+.hidden-mobile {
+    display: block;
+}
+
+.hidden-desktop {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .hidden-mobile {
+        display: none !important;
+    }
+
+    .hidden-desktop {
+        display: block !important;
+    }
+}
+
+/* Base mobile adjustments */
+html, body {
+    overflow-x: hidden;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Improved mobile responsive styles */
+@media (max-width: 768px) {
+    /* Auth container adjustments */
+    .auth-container {
+        padding: 1rem;
+    }
+    
+    .auth-box {
+        padding: 1.5rem;
+        width: 90%;
+        max-width: 400px;
+    }
+    
+    .logo {
+        margin-bottom: 1rem;
+    }
+    
+    .logo i {
+        font-size: 1.5rem;
+    }
+    
+    .logo h1 {
+        font-size: 1.4rem;
+    }
+    
+    .auth-form h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1.2rem;
+    }
+    
+    .input-group {
+        margin-bottom: 1rem;
+    }
+    
+    .input-group input {
+        padding: 10px 15px 10px 40px;
+        font-size: 0.95rem;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+    }
+    
+    /* Main container adjustments */
+    header {
+        padding: 0.75rem 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .user-controls {
+        gap: 0.5rem;
+    }
+    
+    #user-name {
+        font-size: 0.9rem;
+        max-width: 100px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    .secondary-btn {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .icon-btn {
+        padding: 6px;
+    }
+    
+    /* Improved sidebar for mobile */
+    main {
+        flex-direction: column;
+        height: calc(100vh - 60px); /* Full height without the bottom nav */
+    }
+    
+    .sidebar {
+        width: 100%;
+        max-height: 45vh; /* Increased height since bottom nav is removed */
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: 1rem;
+    }
+    
+    .search-container {
+        margin-bottom: 1rem;
+    }
+    
+    .folder-section {
+        margin-bottom: 1rem;
+    }
+    
+    .folder-section h3 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .file-item {
+        padding: 0.5rem;
+    }
+    
+    .file-item i {
+        font-size: 1rem;
+    }
+    
+    /* Content area adjustments */
+    .content {
+        padding: 1rem;
+        height: 55vh; /* Adjusted height to complement sidebar */
+    }
+    
+    #viewer-placeholder i {
+        font-size: 3rem;
+    }
+    
+    /* Add mobile-friendly touch targets */
+    .file-item, .btn, .switch-form a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+    
+    /* Mobile-friendly scrolling */
+    .sidebar, .content, .file-list {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Bottom navigation for mobile - removed as requested */
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .auth-box {
+        padding: 1.25rem;
+        width: 95%;
+    }
+    
+    .logo h1 {
+        font-size: 1.2rem;
+    }
+    
+    header .logo h1 {
+        font-size: 1.1rem;
+    }
+    
+    .user-controls {
+        margin-top: 0.5rem;
+        width: 100%;
+        justify-content: flex-end;
+    }
+    
+    .sidebar {
+        max-height: 40vh; /* Increased since bottom nav is removed */
+    }
+
+    .content {
+        height: 60vh; /* Adjusted to complement sidebar */
+    }
+    
+    /* Adjust input fields for better touch */
+    .input-group input {
+        height: 44px;
+    }
+}
+
+/* Landscape mode adjustments */
+@media (max-height: 500px) and (orientation: landscape) {
+    .auth-box {
+        padding: 1rem;
+        max-width: 500px;
+    }
+    
+    .auth-form h2 {
+        margin-bottom: 0.75rem;
+    }
+    
+    .input-group {
+        margin-bottom: 0.75rem;
+    }
+    
+    main {
+        flex-direction: row;
+    }
+    
+    .sidebar {
+        width: 40%;
+        max-height: none;
+        border-right: 1px solid var(--border-color);
+        border-bottom: none;
+    }
+    
+    .content {
+        width: 60%;
+    }
+}
+
+/* Fix for iOS Safari 100vh issue */
+@supports (-webkit-touch-callout: none) {
+    .auth-container, #main-container {
+        min-height: -webkit-fill-available;
+        min-height: calc(var(--vh, 1vh) * 100);
+    }
+
+    main {
+        height: calc(100vh - 60px - env(safe-area-inset-bottom));
+        height: calc((var(--vh, 1vh) * 100) - 60px - env(safe-area-inset-bottom));
+    }
+}
+
+/* Touch-friendly styles */
+.touch-active {
+    background-color: var(--hover-color) !important;
+    opacity: 0.8;
+}
+
+/* Portrait/Landscape specific adjustments */
+.portrait .sidebar {
+    max-height: 40vh;
+}
+
+.landscape .sidebar {
+    max-height: none;
+    width: 40%;
+}
+
+.landscape main {
+    flex-direction: row;
+}
+
+.landscape .content {
+    width: 60%;
+}
+
+/* Add safe area insets for notched phones */
+@supports (padding: max(0px)) {
+    header, .sidebar, .content {
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+    }
+}
+
+/* Mobile settings dropdown */
+.user-controls.show-mobile-settings {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background-color: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    padding: 1rem;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+/* Improved mobile form inputs */
+@media (max-width: 768px) {
+    input, button, select, textarea {
+        font-size: 16px !important; /* Prevents iOS zoom on focus */
+    }
+
+    /* Add pull-to-refresh visual indicator */
+    .sidebar::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 0;
+        background-color: var(--primary-color);
+        opacity: 0;
+        transition: height 0.2s, opacity 0.2s;
+        z-index: 10;
+    }
+
+    .sidebar.pull-refresh::before {
+        height: 3px;
+        opacity: 1;
+    }
+
+    /* Document controls */
+    .document-controls {
+        position: absolute;
+        bottom: 1rem;
+        right: 1rem;
+        display: flex;
+        gap: 0.5rem;
+        z-index: 10;
+    }
+
+    .document-controls .btn {
+        background-color: var(--surface-color);
+        color: var(--text-color);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 5px var(--shadow-color);
+        transition: all 0.2s ease;
+    }
+
+    .document-controls .btn:active {
+        transform: scale(0.95);
+        box-shadow: 0 1px 3px var(--shadow-color);
+    }
+
+    /* Fullscreen document view */
+    .document-fullscreen #document-viewer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+    }
+}

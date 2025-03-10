@@ -1,0 +1,60 @@
+{
+  "name": "UP Police POC Web Application",
+  "short_name": "UP Police POC",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "description": "A secure web-based document viewer application for Uttar Pradesh Police with authentication that allows authorized personnel to view PDF, DOC, and other official files directly in the browser.",
+  "lang": "en",
+  "dir": "auto",
+  "theme_color": "#1a3a6e",
+  "background_color": "#1a3a6e",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "Assets/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "Assets/manifest-icon-192.maskable.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "Assets/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "Assets/manifest-icon-512.maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "Assets/screenshot.png",
+      "sizes": "2880x1800",
+      "type": "image/png",
+      "description": "A screenshot of the UP Police POC application"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "windows",
+      "url": "https://www.microsoft.com/store/apps/up-police-poc"
+    }
+  ],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Login",
+      "url": "/index.html",
+      "description": "Login to the UP Police POC application"
+    }
+  ]
+}

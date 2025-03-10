@@ -1,0 +1,54 @@
+/* Document controls styles */
+.document-controls {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+}
+
+.document-controls .btn {
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: all 0.2s ease;
+}
+
+.document-controls .btn:hover {
+    background-color: var(--hover-color);
+}
+
+.document-controls .btn:active {
+    transform: scale(0.95);
+    box-shadow: 0 1px 3px var(--shadow-color);
+}
+
+/* Fullscreen document view */
+.document-fullscreen #document-viewer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: var(--surface-color);
+}
+
+/* Hide document controls initially and show when document is loaded */
+.document-controls {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+#document-iframe:not(.hidden) ~ .document-controls {
+    opacity: 1;
+    visibility: visible;
+}

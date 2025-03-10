@@ -1,0 +1,76 @@
+/* Authentication styles with blurred background and glass effect */
+
+/* Container with background image */
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    background-image: url('../Assets/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.auth-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Darkens the background image */
+    backdrop-filter: blur(8px); /* Blurs the background */
+    -webkit-backdrop-filter: blur(8px); /* For Safari */
+    z-index: 1;
+}
+
+/* Glass effect for auth box */
+.auth-box {
+    background-color: rgba(var(--surface-color-rgb), 0.6) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.18) !important;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Dark theme adjustments */
+.dark-theme .auth-container::before {
+    background-color: rgba(0, 0, 0, 0.7); /* Darker overlay for dark theme */
+}
+
+.dark-theme .auth-box {
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Make sure text is readable on the glass background */
+.auth-box .logo h1,
+.auth-box h2,
+.auth-box label,
+.auth-box .switch-form,
+.auth-box .input-group input::placeholder {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhance input fields for better visibility on glass background */
+.auth-box .input-group input {
+    background-color: rgba(var(--surface-color-rgb), 0.7) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.auth-box .input-group i {
+    color: var(--primary-color) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Add a subtle glow to the form in dark mode */
+.dark-theme .auth-box {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3), 
+                0 0 10px rgba(var(--accent-color-rgb), 0.1) !important;
+}

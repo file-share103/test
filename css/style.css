@@ -1,0 +1,1180 @@
+/* Variables for theming */
+:root {
+    /* Light theme - UP Police colors */
+    --primary-color: #1a3a6e; /* UP Police blue */
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --surface-color: #ffffff;
+    --surface-color-rgb: 255, 255, 255; /* RGB values for surface color */
+    --text-color: #212529;
+    --border-color: #dee2e6;
+    --hover-color: #e9ecef;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --error-color: #dc3545;
+    --success-color: #28a745;
+    --accent-color: #d4af37; /* Gold accent for police badge */
+    --accent-color-rgb: 212, 175, 55; /* RGB values for accent color */
+}
+
+/* Dark theme */
+.dark-theme {
+    --primary-color: #2d5ba3; /* Lighter UP Police blue for dark theme */
+    --secondary-color: #adb5bd;
+    --background-color: #121212;
+    --surface-color: #1e1e1e;
+    --surface-color-rgb: 30, 30, 30; /* RGB values for surface color */
+    --text-color: #e9ecef;
+    --border-color: #343a40;
+    --hover-color: #2d3339;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --error-color: #f8526d;
+    --success-color: #43c86a;
+    --accent-color: #ffd700; /* Brighter gold for dark theme */
+    --accent-color-rgb: 255, 215, 0; /* RGB values for accent color */
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Authentication styles */
+.auth-box {
+    background-color: var(--surface-color);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.logo i {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-right: 0.5rem;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    letter-spacing: 0.5px;
+}
+
+.auth-form h2 {
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-color);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.btn {
+    cursor: pointer;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-color);
+    opacity: 0.9;
+}
+
+.secondary-btn {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.secondary-btn:hover {
+    opacity: 0.9;
+}
+
+.icon-btn {
+    background-color: transparent;
+    color: var(--text-color);
+    padding: 8px;
+}
+
+.icon-btn:hover {
+    background-color: var(--hover-color);
+}
+
+.switch-form {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.switch-form a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.switch-form a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: var(--error-color);
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Main application styles */
+#main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--surface-color);
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.user-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#user-name {
+    font-weight: 500;
+}
+
+.last-updated {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    margin-right: 1rem;
+}
+
+.last-updated span {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    height: calc(100vh - 70px);
+}
+
+.sidebar {
+    width: 300px;
+    background-color: var(--surface-color);
+    border-right: 1px solid var(--border-color);
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.search-container {
+    margin-bottom: 1.5rem;
+}
+
+.search-container .input-group {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.search-container .input-group input {
+    background-color: var(--background-color);
+    padding-right: 40px;
+}
+
+.search-input-group .clear-search {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-input-group .clear-search:hover {
+    background-color: var(--hover-color);
+}
+
+.search-results {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: var(--background-color);
+    border-radius: 5px;
+    border-left: 3px solid var(--primary-color);
+}
+
+.search-results h3 {
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+}
+
+.search-results h3 i {
+    margin-right: 0.5rem;
+}
+
+.search-results .file-list {
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.search-highlight {
+    background-color: rgba(var(--accent-color-rgb), 0.2);
+    padding: 0 2px;
+    border-radius: 2px;
+}
+
+.folder-section {
+    margin-bottom: 2rem;
+}
+
+.folder-section h3 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.folder-section h3 i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.file-list {
+    list-style: none;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.file-item:hover {
+    background-color: var(--hover-color);
+}
+
+.file-item.active {
+    background-color: var(--hover-color);
+    font-weight: 500;
+}
+
+.file-item i {
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.file-item small {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: var(--secondary-color);
+    background-color: var(--background-color);
+    padding: 2px 6px;
+    border-radius: 10px;
+}
+
+.file-item .pdf-icon {
+    color: #f40f02;
+}
+
+.file-item .doc-icon {
+    color: #295598;
+}
+
+.loading-item, .error-item, .empty-message {
+    padding: 0.75rem;
+    text-align: center;
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+.loading-item i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.error-item i {
+    margin-right: 0.5rem;
+    color: var(--error-color);
+}
+
+.content {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#document-viewer {
+    flex: 1;
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#viewer-placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: var(--secondary-color);
+}
+
+#viewer-placeholder i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+#viewer-placeholder small {
+    margin-top: 0.5rem;
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+#document-iframe {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        max-height: 300px;
+    }
+    
+    header {
+        padding: 1rem;
+    }
+    
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+    
+    .auth-box {
+        padding: 1.5rem;
+    }
+}/* Variables for theming */
+:root {
+    /* Light theme - UP Police colors */
+    --primary-color: #1a3a6e; /* UP Police blue */
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --surface-color: #ffffff;
+    --text-color: #212529;
+    --border-color: #dee2e6;
+    --hover-color: #e9ecef;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --error-color: #dc3545;
+    --success-color: #28a745;
+    --accent-color: #d4af37; /* Gold accent for police badge */
+}
+
+/* Dark theme */
+.dark-theme {
+    --primary-color: #2d5ba3; /* Lighter UP Police blue for dark theme */
+    --secondary-color: #adb5bd;
+    --background-color: #121212;
+    --surface-color: #1e1e1e;
+    --text-color: #e9ecef;
+    --border-color: #343a40;
+    --hover-color: #2d3339;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --error-color: #f8526d;
+    --success-color: #43c86a;
+    --accent-color: #ffd700; /* Brighter gold for dark theme */
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Authentication styles */
+.auth-box {
+    background-color: var(--surface-color);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.logo i {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-right: 0.5rem;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    letter-spacing: 0.5px;
+}
+
+.auth-form h2 {
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-color);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.btn {
+    cursor: pointer;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-color);
+    opacity: 0.9;
+}
+
+.secondary-btn {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.secondary-btn:hover {
+    opacity: 0.9;
+}
+
+.icon-btn {
+    background-color: transparent;
+    color: var(--text-color);
+    padding: 8px;
+}
+
+.icon-btn:hover {
+    background-color: var(--hover-color);
+}
+
+.switch-form {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.switch-form a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.switch-form a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: var(--error-color);
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Main application styles */
+#main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--surface-color);
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.user-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#user-name {
+    font-weight: 500;
+}
+
+.last-updated {
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    margin-right: 1rem;
+}
+
+.last-updated span {
+    color: var(--text-color);
+    font-weight: 500;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    height: calc(100vh - 70px);
+}
+
+.sidebar {
+    width: 300px;
+    background-color: var(--surface-color);
+    border-right: 1px solid var(--border-color);
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.folder-section {
+    margin-bottom: 2rem;
+}
+
+.folder-section h3 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.folder-section h3 i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.file-list {
+    list-style: none;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.file-item:hover {
+    background-color: var(--hover-color);
+}
+
+.file-item.active {
+    background-color: var(--hover-color);
+    font-weight: 500;
+}
+
+.file-item i {
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.file-item .pdf-icon {
+    color: #f40f02;
+}
+
+.file-item .doc-icon {
+    color: #295598;
+}
+
+.loading-item, .error-item, .empty-message {
+    padding: 0.75rem;
+    text-align: center;
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+.loading-item i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.error-item i {
+    margin-right: 0.5rem;
+    color: var(--error-color);
+}
+
+.content {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#document-viewer {
+    flex: 1;
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#viewer-placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: var(--secondary-color);
+}
+
+#viewer-placeholder i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+#viewer-placeholder small {
+    margin-top: 0.5rem;
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+#document-iframe {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        max-height: 300px;
+    }
+    
+    header {
+        padding: 1rem;
+    }
+    
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+    
+    .auth-box {
+        padding: 1.5rem;
+    }
+}/* Variables for theming */
+:root {
+    /* Light theme */
+    --primary-color: #4a6fa5;
+    --secondary-color: #6c757d;
+    --background-color: #f8f9fa;
+    --surface-color: #ffffff;
+    --text-color: #212529;
+    --border-color: #dee2e6;
+    --hover-color: #e9ecef;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --error-color: #dc3545;
+    --success-color: #28a745;
+}
+
+/* Dark theme */
+.dark-theme {
+    --primary-color: #6d9eeb;
+    --secondary-color: #adb5bd;
+    --background-color: #121212;
+    --surface-color: #1e1e1e;
+    --text-color: #e9ecef;
+    --border-color: #343a40;
+    --hover-color: #2d3339;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --error-color: #f8526d;
+    --success-color: #43c86a;
+}
+
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Authentication styles */
+.auth-box {
+    background-color: var(--surface-color);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px var(--shadow-color);
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.logo i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-right: 0.5rem;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.auth-form h2 {
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--secondary-color);
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: border-color 0.3s;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.btn {
+    cursor: pointer;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+}
+
+.primary-btn:hover {
+    background-color: var(--primary-color);
+    opacity: 0.9;
+}
+
+.secondary-btn {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+.secondary-btn:hover {
+    opacity: 0.9;
+}
+
+.icon-btn {
+    background-color: transparent;
+    color: var(--text-color);
+    padding: 8px;
+}
+
+.icon-btn:hover {
+    background-color: var(--hover-color);
+}
+
+.switch-form {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.switch-form a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.switch-form a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: var(--error-color);
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+/* Main application styles */
+#main-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: var(--surface-color);
+    box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.user-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+#user-name {
+    font-weight: 500;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    height: calc(100vh - 70px);
+}
+
+.sidebar {
+    width: 300px;
+    background-color: var(--surface-color);
+    border-right: 1px solid var(--border-color);
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.folder-section {
+    margin-bottom: 2rem;
+}
+
+.folder-section h3 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.folder-section h3 i {
+    margin-right: 0.5rem;
+    color: var(--primary-color);
+}
+
+.file-list {
+    list-style: none;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.file-item:hover {
+    background-color: var(--hover-color);
+}
+
+.file-item.active {
+    background-color: var(--hover-color);
+    font-weight: 500;
+}
+
+.file-item i {
+    margin-right: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.file-item .pdf-icon {
+    color: #f40f02;
+}
+
+.file-item .doc-icon {
+    color: #295598;
+}
+
+.content {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+#document-viewer {
+    flex: 1;
+    background-color: var(--surface-color);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px var(--shadow-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#viewer-placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    color: var(--secondary-color);
+}
+
+#viewer-placeholder i {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+#document-iframe {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Base responsive styles - detailed mobile styles in mobile.css */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        max-height: 40vh;
+    }
+
+    header {
+        padding: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+
+    .auth-box {
+        padding: 1.5rem;
+        width: 90%;
+    }
+
+    /* Improve touch targets */
+    .btn, .file-item, a {
+        cursor: pointer;
+    }
+
+    /* Adjust font sizes for better readability */
+    body {
+        font-size: 16px;
+    }
+}
